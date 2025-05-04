@@ -16,11 +16,6 @@ namespace csharp_fluent_email.Services
         {
             try
             {
-                string templatePath = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "Templates/EmailTemplate.cshtml"
-                );
-
                 var email = _fluentEmailFactory
                     .Create()
                     .Subject(requestModel.Subject);
