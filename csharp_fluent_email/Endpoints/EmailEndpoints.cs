@@ -8,10 +8,15 @@ public static class EmailEndpoints
 {
     public static void UseEmailEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/v1/SendEmail", async ([FromBody] EmailRequestModel requestModel, IEmailService emailService) =>
-        {
-            await emailService.SendEmailAsync(requestModel);
-            return Results.Ok("Email Sending Successful.");
-        }).WithName("SendEmail").WithOpenApi();
+        app.MapPost(
+                "/api/v1/SendEmail",
+                async ([FromBody] EmailRequestModel requestModel, IEmailService emailService) =>
+                {
+                    await emailService.SendEmailAsync(requestModel);
+                    return Results.Ok("Email Sending Successful.");
+                }
+            )
+            .WithName("SendEmail")
+            .WithOpenApi();
     }
 }
