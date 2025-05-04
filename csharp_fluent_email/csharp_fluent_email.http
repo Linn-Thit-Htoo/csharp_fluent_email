@@ -1,0 +1,6 @@
+@csharp_fluent_email_HostAddress = http://localhost:5124
+
+GET {{csharp_fluent_email_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
