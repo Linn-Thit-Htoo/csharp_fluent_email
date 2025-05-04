@@ -1,9 +1,8 @@
 ﻿using csharp_fluent_email.Models;
 
-namespace csharp_fluent_email.Services
+namespace csharp_fluent_email.Services;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        Task SendEmailAsync(EmailRequestModel requestModel, CancellationToken cs = default);
-    }
+    Task SendEmailAsync(EmailRequestModel requestModel, CancellationToken cs = default);
 }
