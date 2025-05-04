@@ -1,15 +1,23 @@
-﻿using csharp_fluent_email.Services;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
+using csharp_fluent_email.Services;
 
 namespace csharp_fluent_email.Extensions;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencies(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
-            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: true)
+        builder
+            .Configuration.SetBasePath(builder.Environment.ContentRootPath)
+            .AddJsonFile(
+                $"appsettings.{builder.Environment.EnvironmentName}.json",
+                optional: false,
+                reloadOnChange: true
+            )
             .AddEnvironmentVariables();
 
         builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(opt =>
@@ -25,7 +33,7 @@ public static class DependencyInjectionExtensions
         {
             Credentials = new NetworkCredential("lth1212001@gmail.com", ""),
             EnableSsl = true,
-            UseDefaultCredentials = false
+            UseDefaultCredentials = false,
         };
 
         services
