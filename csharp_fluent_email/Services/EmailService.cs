@@ -16,9 +16,7 @@ public class EmailService : IEmailService
     {
         try
         {
-            var email = _fluentEmailFactory
-                .Create()
-                .Subject(requestModel.Subject);
+            var email = _fluentEmailFactory.Create().Subject(requestModel.Subject);
 
             if (requestModel.Body is not null)
             {
